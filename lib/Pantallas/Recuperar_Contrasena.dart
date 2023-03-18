@@ -11,12 +11,10 @@ class Recuperar_Contrasena extends StatefulWidget {
 }
 
 class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>(); 
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool isLoading = false;
   final correo = TextEditingController();
   final fraccionamiento = TextEditingController();
-
-
 
   @override
   void initState() => super.initState();
@@ -24,23 +22,31 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: isLoading
-          ? const Center(
-              child: CircularProgressIndicator(color: AppTheme.primary))
-          : Container(
-              padding: const EdgeInsets.all(8.0),
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              color: AppTheme.secondary,
-              child: Stack(
-                children: <Widget>[
-                  Form(
+      appBar: AppBar(
+        automaticallyImplyLeading: true,
+      ),
+      backgroundColor: Colors.red,
+      body: _body(),
+    );
+  }
+
+  Widget _body() {
+    return isLoading
+        ? const Center(
+            child: CircularProgressIndicator(color: AppTheme.primary))
+        : Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            // color: AppTheme.secondary,
+            child: Stack(
+              children: <Widget>[
+                Form(
                   key: _formKey,
-                  child:Center(
+                  child: Center(
                     child: SingleChildScrollView(
                       child: SizedBox(
                         width: MediaQuery.of(context).size.width * 1,
-                        height: 600,
+                        height: 200,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
@@ -55,14 +61,17 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                                                   .width *
                                               1,
                                           height: 250)),
-                                ),Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                                  BackButton(
-                                    color: AppTheme.white,
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                  )
-                                ]),
+                                ),
+                                // Row(
+                                //     mainAxisAlignment: MainAxisAlignment.start,
+                                //     children: [
+                                //       BackButton(
+                                //         color: AppTheme.white,
+                                //         onPressed: () {
+                                //           Navigator.of(context).pop();
+                                //         },
+                                //       )
+                                //     ]),
                                 Center(
                                   child: Image.asset(
                                       'images/ticien-logoblanco.png',
@@ -75,14 +84,14 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                             SizedBox(
                               width: MediaQuery.of(context).size.width * .9,
                               height: 55,
-                              child:TextFormField(
+                              child: TextFormField(
                                 controller: correo,
                                 validator: ((value) {
-                                    if (value!.isEmpty) {
-                                      return "Campo obligatorio";
-                                    }
-                                    return null;
-                                  }),
+                                  if (value!.isEmpty) {
+                                    return "Campo obligatorio";
+                                  }
+                                  return null;
+                                }),
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
                                     hintText: 'Correo Electronico',
@@ -92,7 +101,7 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                                           BorderSide(color: AppTheme.primary),
                                     )),
                               ),
-                              ),
+                            ),
                             const Spacer(),
                             SizedBox(
                               width: MediaQuery.of(context).size.width * .9,
@@ -100,11 +109,11 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                               child: TextFormField(
                                 controller: fraccionamiento,
                                 validator: ((value) {
-                                    if (value!.isEmpty) {
-                                      return "Campo obligatorio";
-                                    }
-                                    return null;
-                                  }),
+                                  if (value!.isEmpty) {
+                                    return "Campo obligatorio";
+                                  }
+                                  return null;
+                                }),
                                 keyboardType: TextInputType.number,
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
@@ -118,48 +127,48 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                             ),
                             const Spacer(),
                             SizedBox(
-                        width: MediaQuery.of(context).size.width * .9,
-                        height: 55,
-                        child: ElevatedButton(
-                          onPressed: () => setState(() {
-                            if (_formKey.currentState!.validate()) {
-                                   _showAlertDialogLogout();
-                                }
-                          }), 
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor:  AppTheme.primary),
-                              child: const Text('RECUPERAR CONTRASEÑA'),
-                        )),
-                                  TextButton(
-                                  style: TextButton.styleFrom(
-                                    textStyle: const TextStyle(
+                                width: MediaQuery.of(context).size.width * .9,
+                                height: 55,
+                                child: ElevatedButton(
+                                  onPressed: () => setState(() {
+                                    if (_formKey.currentState!.validate()) {
+                                      _showAlertDialogLogout();
+                                    }
+                                  }),
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: AppTheme.primary),
+                                  child: const Text('RECUPERAR CONTRASEÑA'),
+                                )),
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                textStyle: const TextStyle(
                                     color: AppTheme.primary, fontSize: 15),
-                                  ),
-                                  onPressed: () {
-                                    Navigator.pushNamed(context, '/nueva_Contra');
-                                  },
-                                  child: const Text('Ingresar codigo de recuperación'),
-                                ),
-                                 TextButton(
-                                  style: TextButton.styleFrom(
-                                    textStyle: const TextStyle(
+                              ),
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/nueva_Contra');
+                              },
+                              child:
+                                  const Text('Ingresar codigo de recuperación'),
+                            ),
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                textStyle: const TextStyle(
                                     color: AppTheme.primary, fontSize: 15),
-                                  ),
-                                  onPressed: () {
-                                     Navigator.pushNamed(context, '/login');
-                                  },
-                                  child: const Text('Volver'),
-                                ),  
+                              ),
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/login');
+                              },
+                              child: const Text('Volver'),
+                            ),
                           ],
                         ),
                       ),
                     ),
                   ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-    );
+          );
   }
 
   _showAlertDialogLogout() {
@@ -180,5 +189,4 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
           );
         });
   }
-
 }
