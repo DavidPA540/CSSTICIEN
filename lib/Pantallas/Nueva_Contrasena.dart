@@ -43,7 +43,11 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _body(),
+      body: ListView(
+        children: [
+          _body()
+        ],
+      )
     );
   }
 

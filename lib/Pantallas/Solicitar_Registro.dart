@@ -41,7 +41,11 @@ class _Solicitar_Registro extends State<Solicitar_Registro> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _body(),
+      body: ListView(
+        children: [
+          _body()
+        ],
+      )
     );
   }
 
