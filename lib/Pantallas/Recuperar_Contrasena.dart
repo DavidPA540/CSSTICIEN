@@ -38,11 +38,7 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: [
-          _body()
-        ],
-      )
+      body: _body(),
     );
   }
 
