@@ -78,7 +78,7 @@ class _LoginState extends State<Login> {
                                         child: Image.asset(
                                       'images/login-header-bg.jpg',
                                       width:
-                                          MediaQuery.of(context).size.width * 1,
+                                          MediaQuery.of(context).size.width,
                                       fit: BoxFit.fitWidth,
                                     )),
                                   ),

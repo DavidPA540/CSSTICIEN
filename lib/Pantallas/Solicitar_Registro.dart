@@ -1,7 +1,9 @@
-// ignore_for_file: file_names,camel_case_types
+// ignore_for_file: file_names,camel_case_types, prefer_typing_uninitialized_variables
 
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:ticienapp/css.dart';
+import 'package:ticienapp/Widgets/widg_connectivite.dart';
 
 class Solicitar_Registro extends StatefulWidget {
   const Solicitar_Registro({Key? key}) : super(key: key);
@@ -17,21 +19,41 @@ class _Solicitar_Registro extends State<Solicitar_Registro> {
   final nombre = TextEditingController();
   final fraccionamiento = TextEditingController();
   final ciudad = TextEditingController();
+  var subscription;
 
 
   @override
-  void initState() => super.initState();
+  void initState() {
+    super.initState();
+    subscription = Connectivity()
+        .onConnectivityChanged
+        .listen((ConnectivityResult result) {
+      showMyDialog(context);
+    });
+  }
+
+  @override
+  void dispose() {
+    subscription.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: isLoading
+      body: _body(),
+    );
+  }
+
+  Widget _body(){
+    var sizeWh = MediaQuery.of(context).size;
+    return isLoading
           ? const Center(
               child: CircularProgressIndicator(color: AppTheme.primary))
           : Container(
-              padding: const EdgeInsets.all(8.0),
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
+              //padding: const EdgeInsets.all(8.0),
+              width: sizeWh.width,
+              height: sizeWh.height,
               color: AppTheme.secondary,
               child: Stack(
                 children: <Widget>[
@@ -41,22 +63,22 @@ class _Solicitar_Registro extends State<Solicitar_Registro> {
                   Center(
                     child: SingleChildScrollView(
                       child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 1,
-                        height: MediaQuery.of(context).size.height * 1,
+                        width: sizeWh.width,
+                        height:sizeWh.height,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            Stack(
+                            SizedBox(
+                            width: sizeWh.width,
+                            height: 200,  
+                            child: Stack(
                               children: [
                                 SizedBox(
                                   child: Center(
                                       child: Image.asset(
                                           'images/login-header-bg.jpg',
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              1,
-                                          height: 250)),
+                                          width: sizeWh.width,
+                                          fit: BoxFit.fitWidth)),
                                 ),
                                 Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                                   BackButton(
@@ -74,6 +96,7 @@ class _Solicitar_Registro extends State<Solicitar_Registro> {
                                 ),
                               ],
                             ),
+                        ),
                             const Spacer(),
                             SizedBox(
                               width: MediaQuery.of(context).size.width * .9,
@@ -194,9 +217,7 @@ class _Solicitar_Registro extends State<Solicitar_Registro> {
                   ),
                   ),
                 ],
-              ),
-            ),
-    );
+          ),);
   }
 
   _showAlertDialogLogout() {

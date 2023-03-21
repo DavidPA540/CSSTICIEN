@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:ticienapp/css.dart';
+import 'package:ticienapp/Widgets/widg_connectivite.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 
 class Nueva_contrasena extends StatefulWidget {
   const Nueva_contrasena({Key? key}) : super(key: key);
@@ -20,18 +22,38 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
   final claverecu = TextEditingController();
   bool _obscuretext = true;
   bool _obscuretext2 = true;
+  var subscription;
 
   @override
-  void initState() => super.initState();
+  void initState() {
+    super.initState();
+    subscription = Connectivity()
+        .onConnectivityChanged
+        .listen((ConnectivityResult result) {
+      showMyDialog(context);
+    });
+  }
+
+  @override
+  void dispose() {
+    subscription.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: isLoading
+      body: _body(),
+    );
+  }
+
+  Widget _body(){
+    var sizeWh = MediaQuery.of(context).size;
+    return isLoading
           ? const Center(
               child: CircularProgressIndicator(color: AppTheme.primary))
           : Container(
-              padding: const EdgeInsets.all(8.0),
+              //padding: const EdgeInsets.all(8.0),
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               color: AppTheme.secondary,
@@ -42,22 +64,21 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                   child:Center(
                     child: SingleChildScrollView(
                       child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 1,
-                        height: MediaQuery.of(context).size.height * 1,
+                        width: sizeWh.width,
+                        height: sizeWh.height,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
                             Stack(
                               children: [
                                 SizedBox(
+                                  width: sizeWh.width,
+                                  height: 200, 
                                   child: Center(
                                       child: Image.asset(
                                           'images/login-header-bg.jpg',
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              1,
-                                          height: 250)),
+                                          width:sizeWh.width,
+                                          fit: BoxFit.fitWidth)),
                                 ),
                                 Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                                   BackButton(
@@ -77,7 +98,7 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                             ),
                             const Spacer(),
                             SizedBox(
-                              width: MediaQuery.of(context).size.width * .9,
+                              width: sizeWh.width * .9,
                               height: 55,
                               child:TextFormField(
                                 controller: correo,
@@ -99,7 +120,7 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                               ),
                             const Spacer(),
                             SizedBox(
-                              width: MediaQuery.of(context).size.width * .9,
+                              width: sizeWh.width * .9,
                               height: 55,
                               child: TextFormField(
                                 obscureText: _obscuretext,
@@ -111,7 +132,6 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                                     return null;
                                   }),
                                 enableInteractiveSelection: false,
-                                keyboardType: TextInputType.text,
                                 decoration: InputDecoration(
                                     hintText: 'Contraseña',
                                     prefixIcon: const Icon(Icons.lock),
@@ -133,7 +153,7 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                             ),
                             const Spacer(),
                             SizedBox(
-                              width: MediaQuery.of(context).size.width * .9,
+                              width: sizeWh.width * .9,
                               height: 55,
                               child: TextFormField(
                                 obscureText: _obscuretext2,
@@ -145,7 +165,6 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                                     return null;
                                   }),
                                 enableInteractiveSelection: false,
-                                keyboardType: TextInputType.text,
                                 decoration: InputDecoration(
                                     hintText: 'Confirmar Contraseña',
                                     prefixIcon: const Icon(Icons.lock),
@@ -167,7 +186,7 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                             ),
                             const Spacer(),
                             SizedBox(
-                              width: MediaQuery.of(context).size.width * .9,
+                              width: sizeWh.width * .9,
                               height: 55,
                               child: TextFormField(
                                 controller: clavefra,
@@ -233,8 +252,7 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                   ),
                 ],
               ),
-            ),
-    );
+          );
   }
 
   _showAlertDialogLogout() {

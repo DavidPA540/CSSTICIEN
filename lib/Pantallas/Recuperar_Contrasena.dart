@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:ticienapp/css.dart';
+import 'package:ticienapp/Widgets/widg_connectivite.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 
 class Recuperar_Contrasena extends StatefulWidget {
   const Recuperar_Contrasena({Key? key}) : super(key: key);
@@ -15,28 +17,39 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
   bool isLoading = false;
   final correo = TextEditingController();
   final fraccionamiento = TextEditingController();
+  var subscription;
 
   @override
-  void initState() => super.initState();
+  void initState() {
+    super.initState();
+    subscription = Connectivity()
+        .onConnectivityChanged
+        .listen((ConnectivityResult result) {
+      showMyDialog(context);
+    });
+  }
+
+  @override
+  void dispose() {
+    subscription.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: true,
-      ),
-      backgroundColor: Colors.red,
       body: _body(),
     );
   }
 
   Widget _body() {
+    var sizeWh = MediaQuery.of(context).size;
     return isLoading
         ? const Center(
             child: CircularProgressIndicator(color: AppTheme.primary))
         : Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
+            width: sizeWh.width,
+            height: sizeWh.height,
             // color: AppTheme.secondary,
             child: Stack(
               children: <Widget>[
@@ -45,8 +58,8 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                   child: Center(
                     child: SingleChildScrollView(
                       child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 1,
-                        height: 200,
+                        width: sizeWh.width,
+                        height: sizeWh.height,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
@@ -56,22 +69,19 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                                   child: Center(
                                       child: Image.asset(
                                           'images/login-header-bg.jpg',
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              1,
-                                          height: 250)),
+                                          width: sizeWh.width,
+                                          fit: BoxFit.fitWidth)),
                                 ),
-                                // Row(
-                                //     mainAxisAlignment: MainAxisAlignment.start,
-                                //     children: [
-                                //       BackButton(
-                                //         color: AppTheme.white,
-                                //         onPressed: () {
-                                //           Navigator.of(context).pop();
-                                //         },
-                                //       )
-                                //     ]),
+                                 Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                     BackButton(
+                                         color: AppTheme.white,
+                                         onPressed: () {
+                                           Navigator.of(context).pop();
+                                         },
+                                       )
+                                     ]),
                                 Center(
                                   child: Image.asset(
                                       'images/ticien-logoblanco.png',
@@ -80,9 +90,9 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                                 ),
                               ],
                             ),
-                            const Spacer(),
+                            //const Spacer(),
                             SizedBox(
-                              width: MediaQuery.of(context).size.width * .9,
+                              width: sizeWh.width * .9,
                               height: 55,
                               child: TextFormField(
                                 controller: correo,
@@ -102,9 +112,9 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                                     )),
                               ),
                             ),
-                            const Spacer(),
+                            //const Spacer(),
                             SizedBox(
-                              width: MediaQuery.of(context).size.width * .9,
+                              width: sizeWh.width * .9,
                               height: 55,
                               child: TextFormField(
                                 controller: fraccionamiento,
@@ -125,9 +135,9 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                                     )),
                               ),
                             ),
-                            const Spacer(),
+                            //const Spacer(),
                             SizedBox(
-                                width: MediaQuery.of(context).size.width * .9,
+                                width: sizeWh.width * .9,
                                 height: 55,
                                 child: ElevatedButton(
                                   onPressed: () => setState(() {
@@ -142,7 +152,7 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                             TextButton(
                               style: TextButton.styleFrom(
                                 textStyle: const TextStyle(
-                                    color: AppTheme.primary, fontSize: 15),
+                                    color: AppTheme.primary, fontSize: 20),
                               ),
                               onPressed: () {
                                 Navigator.pushNamed(context, '/nueva_Contra');
@@ -153,7 +163,7 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                             TextButton(
                               style: TextButton.styleFrom(
                                 textStyle: const TextStyle(
-                                    color: AppTheme.primary, fontSize: 15),
+                                    color: AppTheme.primary, fontSize: 20),
                               ),
                               onPressed: () {
                                 Navigator.pushNamed(context, '/login');
