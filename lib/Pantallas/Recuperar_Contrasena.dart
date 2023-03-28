@@ -38,6 +38,11 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+      ),
       body: _body(),
     );
   }
@@ -63,34 +68,37 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            Stack(
-                              children: [
-                                SizedBox(
-                                  child: Center(
-                                      child: Image.asset(
-                                          'images/login-header-bg.jpg',
-                                          width: sizeWh.width,
-                                          fit: BoxFit.fitWidth)),
-                                ),
-                                 Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                     BackButton(
-                                         color: AppTheme.white,
-                                         onPressed: () {
-                                           Navigator.of(context).pop();
-                                         },
-                                       )
-                                     ]),
-                                Center(
-                                  child: Image.asset(
-                                      'images/ticien-logoblanco.png',
-                                      width: 300,
-                                      height: 200),
-                                ),
-                              ],
+                            SizedBox(
+                              height: 200,
+                              child: Stack(
+                                children: [
+                                  SizedBox(
+                                    child: Center(
+                                        child: Image.asset(
+                                            'images/login-header-bg.jpg',
+                                            width: sizeWh.width,
+                                            fit: BoxFit.fitWidth)),
+                                  ),
+                                  // Row(
+                                  //     mainAxisAlignment: MainAxisAlignment.start,
+                                  //     children: [
+                                  //       BackButton(
+                                  //         color: AppTheme.white,
+                                  //         onPressed: () {
+                                  //           Navigator.of(context).pop();
+                                  //         },
+                                  //       )
+                                  //     ]),
+                                  Center(
+                                    child: Image.asset(
+                                        'images/ticien-logoblanco.png',
+                                        width: 300,
+                                        height: 200),
+                                  ),
+                                ],
+                              ),
                             ),
-                            //const Spacer(),
+                            const SizedBox(height: 100),
                             SizedBox(
                               width: sizeWh.width * .9,
                               height: 55,
@@ -112,7 +120,6 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                                     )),
                               ),
                             ),
-                            //const Spacer(),
                             SizedBox(
                               width: sizeWh.width * .9,
                               height: 55,
@@ -135,7 +142,7 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                                     )),
                               ),
                             ),
-                            //const Spacer(),
+                            const SizedBox(height: 50),
                             SizedBox(
                                 width: sizeWh.width * .9,
                                 height: 55,
@@ -149,6 +156,7 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                                       backgroundColor: AppTheme.primary),
                                   child: const Text('RECUPERAR CONTRASEÑA'),
                                 )),
+                            const SizedBox(height: 50),
                             TextButton(
                               style: TextButton.styleFrom(
                                 textStyle: const TextStyle(
@@ -170,6 +178,7 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                               },
                               child: const Text('Volver'),
                             ),
+                            const Spacer()
                           ],
                         ),
                       ),

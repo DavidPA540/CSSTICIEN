@@ -77,8 +77,7 @@ class _LoginState extends State<Login> {
                                     child: Center(
                                         child: Image.asset(
                                       'images/login-header-bg.jpg',
-                                      width:
-                                          MediaQuery.of(context).size.width,
+                                      width: MediaQuery.of(context).size.width,
                                       fit: BoxFit.fitWidth,
                                     )),
                                   ),
@@ -162,12 +161,13 @@ class _LoginState extends State<Login> {
                                 keyboardType: TextInputType.number,
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
-                                    hintText: 'Clave fraccionamiento',
-                                    prefixIcon: Icon(Icons.password),
-                                    enabledBorder: UnderlineInputBorder(
-                                      borderSide:
-                                          BorderSide(color: AppTheme.primary),
-                                    )),
+                                  hintText: 'Clave fraccionamiento',
+                                  prefixIcon: Icon(Icons.password),
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: AppTheme.primary),
+                                  ),
+                                ),
                               ),
                             ),
                             const Spacer(),
