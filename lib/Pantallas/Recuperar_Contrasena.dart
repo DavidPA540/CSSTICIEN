@@ -47,7 +47,7 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
     return isLoading
         ? const Center(
             child: CircularProgressIndicator(color: AppTheme.primary))
-        : Container(
+        : SizedBox(
             width: sizeWh.width,
             height: sizeWh.height,
             // color: AppTheme.secondary,
