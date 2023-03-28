@@ -2,6 +2,7 @@
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:ticienapp/Widgets/widg_connectivite.dart';
 import 'package:ticienapp/css.dart';
 
@@ -158,6 +159,9 @@ class _LoginState extends State<Login> {
                                   }
                                   return null;
                                 }),
+                                inputFormatters: <TextInputFormatter>[
+                                  FilteringTextInputFormatter.digitsOnly
+                                ],
                                 keyboardType: TextInputType.number,
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
