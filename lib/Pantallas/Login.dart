@@ -42,6 +42,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _body(),
+      backgroundColor: Colors.black,
     );
   }
 
@@ -62,7 +63,7 @@ class _LoginState extends State<Login> {
                   key: _formKey,
                   child: Center(
                     child: SingleChildScrollView(
-                         padding: EdgeInsets.only(top: 0),
+                      padding: EdgeInsets.only(top: 0),
                       child: Container(
                         //color: Colors.red,
                         width: sizeWh.width,
@@ -108,7 +109,7 @@ class _LoginState extends State<Login> {
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
                                     hintText: 'Correo Electronico',
-                                    prefixIcon: Icon(Icons.email,size: 28),
+                                    prefixIcon: Icon(Icons.email, size: 28),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide:
                                           BorderSide(color: AppTheme.primary),
@@ -133,7 +134,8 @@ class _LoginState extends State<Login> {
                                 keyboardType: TextInputType.text,
                                 decoration: InputDecoration(
                                     hintText: 'Contraseña',
-                                    prefixIcon: const Icon(Icons.lock,size: 28),
+                                    prefixIcon:
+                                        const Icon(Icons.lock, size: 28),
                                     suffixIcon: IconButton(
                                       onPressed: () {
                                         setState(() {
@@ -141,8 +143,10 @@ class _LoginState extends State<Login> {
                                         });
                                       },
                                       icon: _obscuretext
-                                          ? const Icon(Icons.visibility,size: 28)
-                                          : const Icon(Icons.visibility_off,size: 28),
+                                          ? const Icon(Icons.visibility,
+                                              size: 28)
+                                          : const Icon(Icons.visibility_off,
+                                              size: 28),
                                     ),
                                     enabledBorder: const UnderlineInputBorder(
                                       borderSide:
@@ -170,7 +174,7 @@ class _LoginState extends State<Login> {
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
                                   hintText: 'Clave fraccionamiento',
-                                  prefixIcon: Icon(Icons.password,size: 28),
+                                  prefixIcon: Icon(Icons.password, size: 28),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide:
                                         BorderSide(color: AppTheme.primary),
@@ -191,7 +195,7 @@ class _LoginState extends State<Login> {
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: AppTheme.primary),
                                   child: const Text('Acceder',
-                                  style: TextStyle(fontSize: 20)),
+                                      style: TextStyle(fontSize: 20)),
                                 )),
                             const Spacer(),
                             SizedBox(
@@ -204,7 +208,7 @@ class _LoginState extends State<Login> {
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: AppTheme.primary),
                                   child: const Text('Olvido su contraseña',
-                                  style: TextStyle(fontSize: 20)),
+                                      style: TextStyle(fontSize: 20)),
                                 )),
                             const Spacer(),
                             const Text('¿No tienes una cuenta?',

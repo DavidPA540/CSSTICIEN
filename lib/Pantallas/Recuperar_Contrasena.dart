@@ -45,6 +45,7 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
         backgroundColor: Colors.transparent,
       ),
       body: _body(),
+      backgroundColor: Colors.black,
     );
   }
 
@@ -162,7 +163,7 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: AppTheme.primary),
                                   child: const Text('RECUPERAR CONTRASEÑA',
-                                  style: TextStyle(fontSize: 20)),
+                                      style: TextStyle(fontSize: 20)),
                                 )),
                             const SizedBox(height: 25),
                             TextButton(

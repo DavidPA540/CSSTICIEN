@@ -46,6 +46,7 @@ class _Solicitar_Registro extends State<Solicitar_Registro> {
         backgroundColor: Colors.transparent,
       ),
       body: _body(),
+      backgroundColor: Colors.black,
     );
   }
 
@@ -119,7 +120,7 @@ class _Solicitar_Registro extends State<Solicitar_Registro> {
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
                                     hintText: 'Nombre completo',
-                                    prefixIcon: Icon(Icons.person,size: 28),
+                                    prefixIcon: Icon(Icons.person, size: 28),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide:
                                           BorderSide(color: AppTheme.primary),
@@ -142,7 +143,7 @@ class _Solicitar_Registro extends State<Solicitar_Registro> {
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
                                     hintText: 'Correo electrónico',
-                                    prefixIcon: Icon(Icons.email,size: 28),
+                                    prefixIcon: Icon(Icons.email, size: 28),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide:
                                           BorderSide(color: AppTheme.primary),
@@ -165,7 +166,7 @@ class _Solicitar_Registro extends State<Solicitar_Registro> {
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
                                     hintText: 'Nombre del fraccionamiento',
-                                    prefixIcon: Icon(Icons.house,size: 28),
+                                    prefixIcon: Icon(Icons.house, size: 28),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide:
                                           BorderSide(color: AppTheme.primary),
@@ -188,8 +189,8 @@ class _Solicitar_Registro extends State<Solicitar_Registro> {
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
                                     hintText: 'Ciudad',
-                                    prefixIcon:
-                                        Icon(Icons.location_on_outlined,size: 28),
+                                    prefixIcon: Icon(Icons.location_on_outlined,
+                                        size: 28),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide:
                                           BorderSide(color: AppTheme.primary),
@@ -209,7 +210,7 @@ class _Solicitar_Registro extends State<Solicitar_Registro> {
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: AppTheme.primary),
                                   child: const Text('SOLICITAR REGISTRO',
-                                  style: TextStyle(fontSize: 20)),
+                                      style: TextStyle(fontSize: 20)),
                                 )),
                             const Spacer(),
                             TextButton(
