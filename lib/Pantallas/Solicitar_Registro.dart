@@ -115,10 +115,11 @@ class _Solicitar_Registro extends State<Solicitar_Registro> {
                                   }
                                   return null;
                                 }),
+                                style: const TextStyle(fontSize: 20),
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
                                     hintText: 'Nombre completo',
-                                    prefixIcon: Icon(Icons.person),
+                                    prefixIcon: Icon(Icons.person,size: 28),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide:
                                           BorderSide(color: AppTheme.primary),
@@ -137,10 +138,11 @@ class _Solicitar_Registro extends State<Solicitar_Registro> {
                                   }
                                   return null;
                                 }),
+                                style: const TextStyle(fontSize: 20),
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
                                     hintText: 'Correo electrónico',
-                                    prefixIcon: Icon(Icons.email),
+                                    prefixIcon: Icon(Icons.email,size: 28),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide:
                                           BorderSide(color: AppTheme.primary),
@@ -159,10 +161,11 @@ class _Solicitar_Registro extends State<Solicitar_Registro> {
                                   }
                                   return null;
                                 }),
+                                style: const TextStyle(fontSize: 20),
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
                                     hintText: 'Nombre del fraccionamiento',
-                                    prefixIcon: Icon(Icons.house),
+                                    prefixIcon: Icon(Icons.house,size: 28),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide:
                                           BorderSide(color: AppTheme.primary),
@@ -181,11 +184,12 @@ class _Solicitar_Registro extends State<Solicitar_Registro> {
                                   }
                                   return null;
                                 }),
+                                style: const TextStyle(fontSize: 20),
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
                                     hintText: 'Ciudad',
                                     prefixIcon:
-                                        Icon(Icons.location_on_outlined),
+                                        Icon(Icons.location_on_outlined,size: 28),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide:
                                           BorderSide(color: AppTheme.primary),
@@ -204,13 +208,14 @@ class _Solicitar_Registro extends State<Solicitar_Registro> {
                                   }),
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: AppTheme.primary),
-                                  child: const Text('SOLICITAR REGISTRO'),
+                                  child: const Text('SOLICITAR REGISTRO',
+                                  style: TextStyle(fontSize: 20)),
                                 )),
                             const Spacer(),
                             TextButton(
                               style: TextButton.styleFrom(
                                 textStyle: const TextStyle(
-                                    color: AppTheme.primary, fontSize: 15),
+                                    color: AppTheme.primary, fontSize: 20),
                               ),
                               onPressed: () {
                                 Navigator.pushNamed(context, '/login');

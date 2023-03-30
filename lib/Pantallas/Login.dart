@@ -64,7 +64,7 @@ class _LoginState extends State<Login> {
                     child: SingleChildScrollView(
                          padding: EdgeInsets.only(top: 0),
                       child: Container(
-                        color: Colors.red,
+                        //color: Colors.red,
                         width: sizeWh.width,
                         height: sizeWh.height,
                         child: Column(
@@ -79,7 +79,7 @@ class _LoginState extends State<Login> {
                                     child: Center(
                                         child: Image.asset(
                                       'images/login-header-bg.jpg',
-                                      width: MediaQuery.of(context).size.width,
+                                      width: sizeWh.width,
                                       fit: BoxFit.fitWidth,
                                     )),
                                   ),
@@ -104,10 +104,11 @@ class _LoginState extends State<Login> {
                                   }
                                   return null;
                                 }),
+                                style: const TextStyle(fontSize: 20),
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
                                     hintText: 'Correo Electronico',
-                                    prefixIcon: Icon(Icons.email),
+                                    prefixIcon: Icon(Icons.email,size: 28),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide:
                                           BorderSide(color: AppTheme.primary),
@@ -127,11 +128,12 @@ class _LoginState extends State<Login> {
                                   }
                                   return null;
                                 }),
+                                style: const TextStyle(fontSize: 20),
                                 enableInteractiveSelection: false,
                                 keyboardType: TextInputType.text,
                                 decoration: InputDecoration(
                                     hintText: 'Contraseña',
-                                    prefixIcon: const Icon(Icons.lock),
+                                    prefixIcon: const Icon(Icons.lock,size: 28),
                                     suffixIcon: IconButton(
                                       onPressed: () {
                                         setState(() {
@@ -139,8 +141,8 @@ class _LoginState extends State<Login> {
                                         });
                                       },
                                       icon: _obscuretext
-                                          ? const Icon(Icons.visibility)
-                                          : const Icon(Icons.visibility_off),
+                                          ? const Icon(Icons.visibility,size: 28)
+                                          : const Icon(Icons.visibility_off,size: 28),
                                     ),
                                     enabledBorder: const UnderlineInputBorder(
                                       borderSide:
@@ -163,11 +165,12 @@ class _LoginState extends State<Login> {
                                 inputFormatters: <TextInputFormatter>[
                                   FilteringTextInputFormatter.digitsOnly
                                 ],
+                                style: const TextStyle(fontSize: 20),
                                 keyboardType: TextInputType.number,
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
                                   hintText: 'Clave fraccionamiento',
-                                  prefixIcon: Icon(Icons.password),
+                                  prefixIcon: Icon(Icons.password,size: 28),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide:
                                         BorderSide(color: AppTheme.primary),
@@ -187,7 +190,8 @@ class _LoginState extends State<Login> {
                                   }),
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: AppTheme.primary),
-                                  child: const Text('Acceder'),
+                                  child: const Text('Acceder',
+                                  style: TextStyle(fontSize: 20)),
                                 )),
                             const Spacer(),
                             SizedBox(
@@ -199,16 +203,17 @@ class _LoginState extends State<Login> {
                                   }),
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: AppTheme.primary),
-                                  child: const Text('Olvido su contraseña'),
+                                  child: const Text('Olvido su contraseña',
+                                  style: TextStyle(fontSize: 20)),
                                 )),
                             const Spacer(),
                             const Text('¿No tienes una cuenta?',
                                 style: TextStyle(
-                                    color: AppTheme.black, fontSize: 15)),
+                                    color: AppTheme.black, fontSize: 20)),
                             TextButton(
                               style: TextButton.styleFrom(
                                 textStyle: const TextStyle(
-                                    color: AppTheme.primary, fontSize: 15),
+                                    color: AppTheme.primary, fontSize: 20),
                               ),
                               onPressed: () {
                                 Navigator.pushNamed(context, '/registrar');

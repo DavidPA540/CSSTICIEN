@@ -19,9 +19,10 @@ _showSnackBarnotWifi(context) {
         content: Row(children: const <Widget>[
           Icon(Icons.error, color: AppTheme.white),
           SizedBox(width: 4),
-          Text(' Se Perdio la conexion',
+          Expanded(
+          child: Text(' Se Perdio la conexion',
           style: TextStyle(fontSize: 20),
-           textAlign: TextAlign.justify)
+           textAlign: TextAlign.justify))
         ]),
         backgroundColor: AppTheme.error,
         duration: const Duration(milliseconds: 3000),
@@ -33,9 +34,10 @@ _showSnackBarWifi(context) {
         content: Row(children: const <Widget>[
           Icon(Icons.wifi, color: AppTheme.white),
           SizedBox(width: 4),
-          Text(' Se establecio la conexion a la red',
+          Expanded(
+          child:Text(' Se establecio la conexion a la red',
           style: TextStyle(fontSize: 20),
-           textAlign: TextAlign.justify)
+           textAlign: TextAlign.justify))
         ]),
         backgroundColor: AppTheme.primary
         ,
@@ -48,9 +50,10 @@ _showSnackBarMobile(context) {
         content: Row(children: const <Widget>[
           Icon(Icons.signal_cellular_alt, color: AppTheme.white),
           SizedBox(width: 4),
-          Text(' Se establecio la conexion a datos',
+          Expanded(
+          child:Text(' Se establecio la conexion a datos',
           style: TextStyle(fontSize: 20),
-           textAlign: TextAlign.justify)
+           textAlign: TextAlign.justify))
         ]),
         backgroundColor: AppTheme.primary,
         duration: const Duration(milliseconds: 3000),

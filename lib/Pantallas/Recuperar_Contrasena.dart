@@ -111,17 +111,18 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                                   }
                                   return null;
                                 }),
+                                style: const TextStyle(fontSize: 20),
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
                                     hintText: 'Correo Electronico',
-                                    prefixIcon: Icon(Icons.email),
+                                    prefixIcon: Icon(Icons.email, size: 28),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide:
                                           BorderSide(color: AppTheme.primary),
                                     )),
                               ),
                             ),
-                            const SizedBox(height: 50),
+                            const SizedBox(height: 25),
                             SizedBox(
                               width: sizeWh.width * .9,
                               height: 55,
@@ -136,18 +137,19 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                                 inputFormatters: <TextInputFormatter>[
                                   FilteringTextInputFormatter.digitsOnly
                                 ],
+                                style: const TextStyle(fontSize: 20),
                                 keyboardType: TextInputType.number,
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
                                     hintText: 'Clave fraccionamiento',
-                                    prefixIcon: Icon(Icons.password),
+                                    prefixIcon: Icon(Icons.password, size: 28),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide:
                                           BorderSide(color: AppTheme.primary),
                                     )),
                               ),
                             ),
-                            const SizedBox(height: 50),
+                            const SizedBox(height: 25),
                             SizedBox(
                                 width: sizeWh.width * .9,
                                 height: 55,
@@ -159,9 +161,10 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                                   }),
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: AppTheme.primary),
-                                  child: const Text('RECUPERAR CONTRASEÑA'),
+                                  child: const Text('RECUPERAR CONTRASEÑA',
+                                  style: TextStyle(fontSize: 20)),
                                 )),
-                            const SizedBox(height: 50),
+                            const SizedBox(height: 25),
                             TextButton(
                               style: TextButton.styleFrom(
                                 textStyle: const TextStyle(
@@ -173,6 +176,7 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                               child:
                                   const Text('Ingresar codigo de recuperación'),
                             ),
+                            const SizedBox(height: 25),
                             TextButton(
                               style: TextButton.styleFrom(
                                 textStyle: const TextStyle(

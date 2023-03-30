@@ -106,10 +106,12 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                                     }
                                     return null;
                                   }),
+                                style: const TextStyle(fontSize: 20),
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
                                     hintText: 'Correo Electronico',
-                                    prefixIcon: Icon(Icons.email),
+                                    prefixIcon: Icon(Icons.email,
+                                    size: 28,),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide:
                                           BorderSide(color: AppTheme.primary),
@@ -129,10 +131,12 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                                     }
                                     return null;
                                   }),
+                                style: const TextStyle(fontSize: 20),
                                 enableInteractiveSelection: false,
                                 decoration: InputDecoration(
                                     hintText: 'Contraseña',
-                                    prefixIcon: const Icon(Icons.lock),
+                                    prefixIcon: const Icon(Icons.lock,
+                                    size: 28,),
                                     suffixIcon: IconButton(
                                       onPressed: () {
                                         setState(() {
@@ -140,8 +144,8 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                                         });
                                       },
                                       icon: _obscuretext
-                                          ? const Icon(Icons.visibility)
-                                          : const Icon(Icons.visibility_off),
+                                          ? const Icon(Icons.visibility ,size: 28)
+                                          : const Icon(Icons.visibility_off, size: 28),
                                     ),
                                     enabledBorder: const UnderlineInputBorder(
                                       borderSide:
@@ -162,10 +166,12 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                                     }
                                     return null;
                                   }),
+                                style: const TextStyle(fontSize: 20),  
                                 enableInteractiveSelection: false,
                                 decoration: InputDecoration(
                                     hintText: 'Confirmar Contraseña',
-                                    prefixIcon: const Icon(Icons.lock),
+                                    prefixIcon: const Icon(Icons.lock,
+                                    size: 28,),
                                     suffixIcon: IconButton(
                                       onPressed: () {
                                         setState(() {
@@ -173,8 +179,8 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                                         });
                                       },
                                       icon: _obscuretext2
-                                          ? const Icon(Icons.visibility)
-                                          : const Icon(Icons.visibility_off),
+                                          ? const Icon(Icons.visibility,size: 28)
+                                          : const Icon(Icons.visibility_off,size: 28),
                                     ),
                                     enabledBorder: const UnderlineInputBorder(
                                       borderSide:
@@ -196,12 +202,14 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                                   }),
                                 inputFormatters: <TextInputFormatter>[
                                   FilteringTextInputFormatter.digitsOnly
-                                ],  
+                                ],
+                                style: const TextStyle(fontSize: 20),  
                                 keyboardType: TextInputType.number,
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
                                     hintText: 'Clave fraccionamiento',
-                                    prefixIcon: Icon(Icons.password_sharp),
+                                    prefixIcon: Icon(Icons.password_sharp,
+                                    size: 28,),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide:
                                           BorderSide(color: AppTheme.primary),
@@ -222,12 +230,14 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                                   }),
                                 inputFormatters: <TextInputFormatter>[
                                   FilteringTextInputFormatter.digitsOnly
-                                ],  
+                                ],
+                                style: const TextStyle(fontSize: 20),  
                                 keyboardType: TextInputType.number,
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
                                     hintText: 'Codigo de recuperacion',
-                                    prefixIcon: Icon(Icons.key_sharp),
+                                    prefixIcon: Icon(Icons.key_sharp,
+                                    size: 28,),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide:
                                           BorderSide(color: AppTheme.primary),
@@ -235,7 +245,7 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                               ),
                             ),
                             const Spacer(),
-                           SizedBox(
+                        SizedBox(
                         width: MediaQuery.of(context).size.width * .9,
                         height: 55,
                         child: ElevatedButton(
@@ -246,9 +256,20 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                           }), 
                           style: ElevatedButton.styleFrom(
                               backgroundColor:  AppTheme.primary),
-                              child: const Text('CONFIRMAR NUEVA CONTRASEÑA'),
+                              child: const Text('CONFIRMAR NUEVA CONTRASEÑA',
+                              style: TextStyle(fontSize: 20)),
                         )),
-                        const Spacer() 
+                        const Spacer(),
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                textStyle: const TextStyle(
+                                    color: AppTheme.primary, fontSize: 20),
+                              ),
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/recuperar');
+                              },
+                              child: const Text('Volver'),
+                            ), 
                           ],
                         ),
                       ),
