@@ -224,6 +224,9 @@ class _LoginState extends State<Login> {
                               },
                               child: const Text('Regístrate aquí'),
                             ),
+                            SizedBox(
+                              height: 200,
+                            ),
                             const Spacer()
                           ],
                         ),
