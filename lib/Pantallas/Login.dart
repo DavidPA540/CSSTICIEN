@@ -62,12 +62,13 @@ class _LoginState extends State<Login> {
                   key: _formKey,
                   child: Center(
                     child: SingleChildScrollView(
-                      //   padding: EdgeInsets.only(top: 0),
-                      child: SizedBox(
+                         padding: EdgeInsets.only(top: 0),
+                      child: Container(
+                        color: Colors.red,
                         width: sizeWh.width,
                         height: sizeWh.height,
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
                             SizedBox(
                               width: sizeWh.width,
@@ -214,6 +215,7 @@ class _LoginState extends State<Login> {
                               },
                               child: const Text('Regístrate aquí'),
                             ),
+                            const Spacer()
                           ],
                         ),
                       ),

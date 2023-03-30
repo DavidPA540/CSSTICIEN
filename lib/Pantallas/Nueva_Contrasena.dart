@@ -1,6 +1,7 @@
-// ignore_for_file: camel_case_types, file_names
+// ignore_for_file: camel_case_types, file_names, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:ticienapp/css.dart';
 import 'package:ticienapp/Widgets/widg_connectivite.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -43,6 +44,11 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+      ),
       body: _body(),
     );
   }
@@ -80,14 +86,6 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                                           width:sizeWh.width,
                                           fit: BoxFit.fitWidth)),
                                 ),
-                                Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                                  BackButton(
-                                    color: AppTheme.white,
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                  )
-                                ]),
                                 Center(
                                   child: Image.asset(
                                       'images/ticien-logoblanco.png',
@@ -196,6 +194,9 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                                     }
                                     return null;
                                   }),
+                                inputFormatters: <TextInputFormatter>[
+                                  FilteringTextInputFormatter.digitsOnly
+                                ],  
                                 keyboardType: TextInputType.number,
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
@@ -219,6 +220,9 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                                     }
                                     return null;
                                   }),
+                                inputFormatters: <TextInputFormatter>[
+                                  FilteringTextInputFormatter.digitsOnly
+                                ],  
                                 keyboardType: TextInputType.number,
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
@@ -243,7 +247,8 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                           style: ElevatedButton.styleFrom(
                               backgroundColor:  AppTheme.primary),
                               child: const Text('CONFIRMAR NUEVA CONTRASEÑA'),
-                        )), 
+                        )),
+                        const Spacer() 
                           ],
                         ),
                       ),

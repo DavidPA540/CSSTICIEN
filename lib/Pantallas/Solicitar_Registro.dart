@@ -217,6 +217,7 @@ class _Solicitar_Registro extends State<Solicitar_Registro> {
                               },
                               child: const Text('Volver'),
                             ),
+                            const Spacer()
                           ],
                         ),
                       ),

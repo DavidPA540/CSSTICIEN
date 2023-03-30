@@ -1,6 +1,7 @@
-// ignore_for_file: file_names,camel_case_types
+// ignore_for_file: file_names,camel_case_types, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:ticienapp/css.dart';
 import 'package:ticienapp/Widgets/widg_connectivite.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -77,7 +78,7 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                                         child: Image.asset(
                                             'images/login-header-bg.jpg',
                                             width: sizeWh.width,
-                                            fit: BoxFit.fitWidth)),
+                                            fit: BoxFit.fill)),
                                   ),
                                   // Row(
                                   //     mainAxisAlignment: MainAxisAlignment.start,
@@ -98,7 +99,7 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                                 ],
                               ),
                             ),
-                            const SizedBox(height: 100),
+                            const SizedBox(height: 50),
                             SizedBox(
                               width: sizeWh.width * .9,
                               height: 55,
@@ -120,6 +121,7 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                                     )),
                               ),
                             ),
+                            const SizedBox(height: 50),
                             SizedBox(
                               width: sizeWh.width * .9,
                               height: 55,
@@ -131,6 +133,9 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                                   }
                                   return null;
                                 }),
+                                inputFormatters: <TextInputFormatter>[
+                                  FilteringTextInputFormatter.digitsOnly
+                                ],
                                 keyboardType: TextInputType.number,
                                 enableInteractiveSelection: false,
                                 decoration: const InputDecoration(
