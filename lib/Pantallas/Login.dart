@@ -81,7 +81,7 @@ class _LoginState extends State<Login> {
                                         child: Image.asset(
                                       'images/login-header-bg.jpg',
                                       width: sizeWh.width,
-                                      fit: BoxFit.fitWidth,
+                                      fit: BoxFit.cover,
                                     )),
                                   ),
                                   Center(
@@ -223,9 +223,6 @@ class _LoginState extends State<Login> {
                                 Navigator.pushNamed(context, '/registrar');
                               },
                               child: const Text('Regístrate aquí'),
-                            ),
-                            SizedBox(
-                              height: 200,
                             ),
                             const Spacer()
                           ],
