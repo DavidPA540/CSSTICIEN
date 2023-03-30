@@ -57,181 +57,177 @@ class _LoginState extends State<Login> {
             width: sizeWh.width,
             height: sizeWh.height,
             color: AppTheme.secondary,
-            child: Stack(
-              children: <Widget>[
-                Form(
-                  key: _formKey,
-                  child: Center(
-                    child: SingleChildScrollView(
-                      padding: EdgeInsets.only(top: 0),
-                      child: Container(
-                        //color: Colors.red,
+            child: Form(
+              key: _formKey,
+              child: SingleChildScrollView(
+                child: SizedBox(
+                  //color: Colors.red,
+                  width: sizeWh.width,
+                  height: sizeWh.height,
+                  child: ListView(
+                    padding: const EdgeInsets.only(top: 0),
+                    shrinkWrap: true,
+                    //  mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(
                         width: sizeWh.width,
-                        height: sizeWh.height,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
+                        height: 200,
+                        child: Stack(
+                          children: [
                             SizedBox(
-                              width: sizeWh.width,
-                              height: 200,
-                              child: Stack(
-                                children: [
-                                  SizedBox(
-                                    child: Center(
-                                        child: Image.asset(
-                                      'images/login-header-bg.jpg',
-                                      width: sizeWh.width,
-                                      fit: BoxFit.fitWidth,
-                                    )),
-                                  ),
-                                  Center(
-                                    child: Image.asset(
-                                        'images/ticien-logoblanco.png',
-                                        width: 300,
-                                        height: 200),
-                                  ),
-                                ],
-                              ),
+                              child: Center(
+                                  child: Image.asset(
+                                'images/login-header-bg.jpg',
+                                width: sizeWh.width,
+                                fit: BoxFit.fitWidth,
+                              )),
                             ),
-                            const Spacer(),
-                            SizedBox(
-                              width: sizeWh.width * .9,
-                              height: 55,
-                              child: TextFormField(
-                                controller: correo,
-                                validator: ((value) {
-                                  if (value!.isEmpty) {
-                                    return "Campo obligatorio";
-                                  }
-                                  return null;
-                                }),
-                                style: const TextStyle(fontSize: 20),
-                                enableInteractiveSelection: false,
-                                decoration: const InputDecoration(
-                                    hintText: 'Correo Electronico',
-                                    prefixIcon: Icon(Icons.email, size: 28),
-                                    enabledBorder: UnderlineInputBorder(
-                                      borderSide:
-                                          BorderSide(color: AppTheme.primary),
-                                    )),
-                              ),
+                            Center(
+                              child: Image.asset('images/ticien-logoblanco.png',
+                                  width: 300, height: 200),
                             ),
-                            const Spacer(),
-                            SizedBox(
-                              width: sizeWh.width * .9,
-                              height: 55,
-                              child: TextFormField(
-                                obscureText: _obscuretext,
-                                controller: password,
-                                validator: ((value) {
-                                  if (value!.isEmpty) {
-                                    return "Minimo 6 caracteres,una mayúscila,una minúscula y un número";
-                                  }
-                                  return null;
-                                }),
-                                style: const TextStyle(fontSize: 20),
-                                enableInteractiveSelection: false,
-                                keyboardType: TextInputType.text,
-                                decoration: InputDecoration(
-                                    hintText: 'Contraseña',
-                                    prefixIcon:
-                                        const Icon(Icons.lock, size: 28),
-                                    suffixIcon: IconButton(
-                                      onPressed: () {
-                                        setState(() {
-                                          _obscuretext = !_obscuretext;
-                                        });
-                                      },
-                                      icon: _obscuretext
-                                          ? const Icon(Icons.visibility,
-                                              size: 28)
-                                          : const Icon(Icons.visibility_off,
-                                              size: 28),
-                                    ),
-                                    enabledBorder: const UnderlineInputBorder(
-                                      borderSide:
-                                          BorderSide(color: AppTheme.primary),
-                                    )),
-                              ),
-                            ),
-                            const Spacer(),
-                            SizedBox(
-                              width: sizeWh.width * .9,
-                              height: 55,
-                              child: TextFormField(
-                                controller: clavefra,
-                                validator: ((value) {
-                                  if (value!.isEmpty) {
-                                    return "Campo obligatorio";
-                                  }
-                                  return null;
-                                }),
-                                inputFormatters: <TextInputFormatter>[
-                                  FilteringTextInputFormatter.digitsOnly
-                                ],
-                                style: const TextStyle(fontSize: 20),
-                                keyboardType: TextInputType.number,
-                                enableInteractiveSelection: false,
-                                decoration: const InputDecoration(
-                                  hintText: 'Clave fraccionamiento',
-                                  prefixIcon: Icon(Icons.password, size: 28),
-                                  enabledBorder: UnderlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: AppTheme.primary),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            const Spacer(),
-                            SizedBox(
-                                width: sizeWh.width * .9,
-                                height: 55,
-                                child: ElevatedButton(
-                                  onPressed: () => setState(() {
-                                    if (_formKey.currentState!.validate()) {
-                                      _showAlertDialogLogout();
-                                    }
-                                  }),
-                                  style: ElevatedButton.styleFrom(
-                                      backgroundColor: AppTheme.primary),
-                                  child: const Text('Acceder',
-                                      style: TextStyle(fontSize: 20)),
-                                )),
-                            const Spacer(),
-                            SizedBox(
-                                width: sizeWh.width * .9,
-                                height: 55,
-                                child: ElevatedButton(
-                                  onPressed: () => setState(() {
-                                    Navigator.pushNamed(context, '/recuperar');
-                                  }),
-                                  style: ElevatedButton.styleFrom(
-                                      backgroundColor: AppTheme.primary),
-                                  child: const Text('Olvido su contraseña',
-                                      style: TextStyle(fontSize: 20)),
-                                )),
-                            const Spacer(),
-                            const Text('¿No tienes una cuenta?',
-                                style: TextStyle(
-                                    color: AppTheme.black, fontSize: 20)),
-                            TextButton(
-                              style: TextButton.styleFrom(
-                                textStyle: const TextStyle(
-                                    color: AppTheme.primary, fontSize: 20),
-                              ),
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/registrar');
-                              },
-                              child: const Text('Regístrate aquí'),
-                            ),
-                            const Spacer()
                           ],
                         ),
                       ),
-                    ),
+                      // const Spacer(),
+                      const SizedBox(height: 30),
+                      Column(
+                        children: [
+                          SizedBox(
+                            width: sizeWh.width * .9,
+                            height: 55,
+                            child: TextFormField(
+                              controller: correo,
+                              validator: ((value) {
+                                if (value!.isEmpty) {
+                                  return "Campo obligatorio";
+                                }
+                                return null;
+                              }),
+                              style: const TextStyle(fontSize: 20),
+                              enableInteractiveSelection: false,
+                              decoration: const InputDecoration(
+                                  hintText: 'Correo Electronico',
+                                  prefixIcon: Icon(Icons.email, size: 28),
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: AppTheme.primary),
+                                  )),
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          SizedBox(
+                            width: sizeWh.width * .9,
+                            height: 55,
+                            child: TextFormField(
+                              obscureText: _obscuretext,
+                              controller: password,
+                              validator: ((value) {
+                                if (value!.isEmpty) {
+                                  return "Minimo 6 caracteres,una mayúscila,una minúscula y un número";
+                                }
+                                return null;
+                              }),
+                              style: const TextStyle(fontSize: 20),
+                              enableInteractiveSelection: false,
+                              keyboardType: TextInputType.text,
+                              decoration: InputDecoration(
+                                  hintText: 'Contraseña',
+                                  prefixIcon: const Icon(Icons.lock, size: 28),
+                                  suffixIcon: IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        _obscuretext = !_obscuretext;
+                                      });
+                                    },
+                                    icon: _obscuretext
+                                        ? const Icon(Icons.visibility, size: 28)
+                                        : const Icon(Icons.visibility_off,
+                                            size: 28),
+                                  ),
+                                  enabledBorder: const UnderlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: AppTheme.primary),
+                                  )),
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          SizedBox(
+                            width: sizeWh.width * .9,
+                            height: 55,
+                            child: TextFormField(
+                              controller: clavefra,
+                              validator: ((value) {
+                                if (value!.isEmpty) {
+                                  return "Campo obligatorio";
+                                }
+                                return null;
+                              }),
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              style: const TextStyle(fontSize: 20),
+                              keyboardType: TextInputType.number,
+                              enableInteractiveSelection: false,
+                              decoration: const InputDecoration(
+                                hintText: 'Clave fraccionamiento',
+                                prefixIcon: Icon(Icons.password, size: 28),
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: AppTheme.primary),
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 30),
+                          SizedBox(
+                              width: sizeWh.width * .9,
+                              height: 55,
+                              child: ElevatedButton(
+                                onPressed: () => setState(() {
+                                  if (_formKey.currentState!.validate()) {
+                                    _showAlertDialogLogout();
+                                  }
+                                }),
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: AppTheme.primary),
+                                child: const Text('Acceder',
+                                    style: TextStyle(fontSize: 20)),
+                              )),
+                          const SizedBox(height: 20),
+                          SizedBox(
+                              width: sizeWh.width * .9,
+                              height: 55,
+                              child: ElevatedButton(
+                                onPressed: () => setState(() {
+                                  Navigator.pushNamed(context, '/recuperar');
+                                }),
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: AppTheme.primary),
+                                child: const Text('Olvido su contraseña',
+                                    style: TextStyle(fontSize: 20)),
+                              )),
+                          const SizedBox(height: 20),
+                          const Text('¿No tienes una cuenta?',
+                              style: TextStyle(
+                                  color: AppTheme.black, fontSize: 20)),
+                          TextButton(
+                            style: TextButton.styleFrom(
+                              textStyle: const TextStyle(
+                                  color: AppTheme.primary, fontSize: 20),
+                            ),
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/registrar');
+                            },
+                            child: const Text('Regístrate aquí'),
+                          ),
+                          // const Spacer()
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-              ],
+              ),
             ),
           );
   }
