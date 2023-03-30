@@ -44,8 +44,8 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
-      body: _body(),
       backgroundColor: Colors.black,
+      body: _body(),
     );
   }
 
@@ -54,10 +54,10 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
     return isLoading
         ? const Center(
             child: CircularProgressIndicator(color: AppTheme.primary))
-        : SizedBox(
+        : Container(
             width: sizeWh.width,
             height: sizeWh.height,
-            // color: AppTheme.secondary,
+            color: AppTheme.secondary,
             child: Stack(
               children: <Widget>[
                 Form(
