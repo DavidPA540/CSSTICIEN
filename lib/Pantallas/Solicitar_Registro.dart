@@ -27,7 +27,7 @@ class _Solicitar_Registro extends State<Solicitar_Registro> {
     subscription = Connectivity()
         .onConnectivityChanged
         .listen((ConnectivityResult result) {
-      showMyDialog(context);
+      //showMyDialog(context);
     });
   }
 
@@ -74,7 +74,7 @@ class _Solicitar_Registro extends State<Solicitar_Registro> {
                           children: <Widget>[
                             SizedBox(
                               width: sizeWh.width,
-                              height: 200,
+                              //height: 200,
                               child: Stack(
                                 children: [
                                   SizedBox(

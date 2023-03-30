@@ -26,7 +26,7 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
     subscription = Connectivity()
         .onConnectivityChanged
         .listen((ConnectivityResult result) {
-      showMyDialog(context);
+      //showMyDialog(context);
     });
   }
 
@@ -71,7 +71,7 @@ class _Recuperar_Contrasena extends State<Recuperar_Contrasena> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
                             SizedBox(
-                              height: 200,
+                              //height: 200,
                               child: Stack(
                                 children: [
                                   SizedBox(

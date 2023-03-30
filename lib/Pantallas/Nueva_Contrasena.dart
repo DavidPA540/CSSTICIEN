@@ -31,7 +31,7 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
     subscription = Connectivity()
         .onConnectivityChanged
         .listen((ConnectivityResult result) {
-      showMyDialog(context);
+      //showMyDialog(context);
     });
   }
 
@@ -79,7 +79,7 @@ class _Nueva_contrasena extends State<Nueva_contrasena> {
                               children: [
                                 SizedBox(
                                   width: sizeWh.width,
-                                  height: 200, 
+                                  //height: 200, 
                                   child: Center(
                                       child: Image.asset(
                                           'images/login-header-bg.jpg',
