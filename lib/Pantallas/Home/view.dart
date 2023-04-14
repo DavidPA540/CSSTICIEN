@@ -10,7 +10,7 @@ import '../Logueado/cuentas.dart';
 
 class HomeMain extends StatefulWidget {
   const HomeMain({super.key});
-  
+
   @override
   State<HomeMain> createState() => _HomeMainState();
 }
@@ -21,8 +21,9 @@ class _HomeMainState extends State<HomeMain> {
   @override
   void initState() {
     super.initState();
-    indexPage=0;
+    indexPage = 0;
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +42,7 @@ class _HomeMainState extends State<HomeMain> {
       case 3:
         return Perfil();
       case 4:
-        return _showAlertDialogLogout();          
+        return _showAlertDialogLogout();
     }
   }
 
@@ -72,76 +73,74 @@ class _HomeMainState extends State<HomeMain> {
         });
   }
 
-  _body(){
+  _body() {
     return Column(
       children: [
-        Expanded(child:  _getDrawerItemWidget(_selectDrawerItem),
-                ),
+        Expanded(
+          child: _getDrawerItemWidget(_selectDrawerItem),
+        ),
         Container(
           width: MediaQuery.of(context).size.width,
           height: 70,
           child: Row(
             children: [
-              buttonSelect(0,Icons.home,'Inicio'),
-              buttonSelect(1,Icons.block,'Bloquear'),
-              buttonSelect(2,Icons.settings,'Cuentas'),
-              buttonSelect(3,Icons.person,'Perfil'),
-              buttonSelect(4,Icons.logout,'Salir')
+              buttonSelect(0, Icons.home, 'Inicio'),
+              buttonSelect(1, Icons.block, 'Bloquear'),
+              buttonSelect(2, Icons.settings, 'Cuentas'),
+              buttonSelect(3, Icons.person, 'Perfil'),
+              buttonSelect(4, Icons.logout, 'Salir')
             ],
           ),
         )
       ],
     );
-    
   }
 
-  Widget buttonSelect(index, IconData icon,String texto){
+  Widget buttonSelect(index, IconData icon, String texto) {
     return Expanded(
-      child: GestureDetector(
-        onTap: () {
-          setState(() {
-            indexPage = index;
-            _selectDrawerItem = index;
-          });
-        },
-        child:Container(
-            decoration: BoxDecoration(color: selectBackGroundColor(index)),
-          child:Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-                Icon(icon, color: selectIconColor(index), size: selectIconSize(index)),
-                (index != indexPage)
-                  ?Text(texto):SizedBox()
-                
-                
-                ]
-            ,
-            )
-        )
-      )
-    );
+        child: GestureDetector(
+            onTap: () {
+              setState(() {
+                indexPage = index;
+
+                if (index == 4) {
+                  _showAlertDialogLogout();
+                } else {
+                  _selectDrawerItem = index;
+                }
+              });
+            },
+            child: Container(
+                decoration: BoxDecoration(color: selectBackGroundColor(index)),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(icon,
+                        color: selectIconColor(index),
+                        size: selectIconSize(index)),
+                    (index != indexPage) ? Text(texto) : SizedBox()
+                  ],
+                ))));
   }
 
-  Color selectBackGroundColor(index){
-    if(index == indexPage){
+  Color selectBackGroundColor(index) {
+    if (index == indexPage) {
       return Colors.black;
     }
-      return Colors.white;
+    return Colors.white;
   }
 
-  Color selectIconColor(index){
-    if(index == indexPage){
+  Color selectIconColor(index) {
+    if (index == indexPage) {
       return Colors.white;
     }
-      return Colors.black;
+    return Colors.black;
   }
 
-  double selectIconSize(index){
-    if(index == indexPage){
+  double selectIconSize(index) {
+    if (index == indexPage) {
       return 45;
     }
-      return 30;
+    return 30;
   }
-
 }
-
