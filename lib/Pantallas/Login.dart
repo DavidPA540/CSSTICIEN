@@ -245,7 +245,7 @@ class _LoginState extends State<Login> {
             actions: <Widget>[
               TextButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/main');
                   },
                   child: const Text('Okey')),
             ],

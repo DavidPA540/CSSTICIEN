@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:ticienapp/Pantallas/Home/view.dart';
+import 'package:ticienapp/Pantallas/Logueado/home.dart';
 import 'package:ticienapp/Pantallas/Solicitar_Registro.dart';
 import 'Pantallas/Nueva_Contrasena.dart';
 import 'Pantallas/Recuperar_Contrasena.dart';
@@ -36,6 +38,8 @@ class MyApp extends StatelessWidget {
           '/recuperar': (BuildContext context) => const Recuperar_Contrasena(),
           '/registrar': (BuildContext context) => const Solicitar_Registro(),
           '/nueva_Contra': (BuildContext context) => const Nueva_contrasena(),
+          '/home': (BuildContext context) => const Home(),
+          '/main' : (BuildContext context) => const HomeMain()
         });
   }
 }
